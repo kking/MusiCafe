@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".fragment.IntervalEarFragment">
+
+    <!-- White Keys -->
+    <!-- ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/whiteKeyConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/cButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_c"
+            app:layout_constraintEnd_toStartOf="@+id/dButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/dButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_d"
+            app:layout_constraintEnd_toStartOf="@+id/eButton"
+            app:layout_constraintStart_toEndOf="@+id/cButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/eButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_e"
+            app:layout_constraintEnd_toStartOf="@+id/fButton"
+            app:layout_constraintStart_toEndOf="@+id/dButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/fButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_f"
+            app:layout_constraintEnd_toStartOf="@+id/gButton"
+            app:layout_constraintStart_toEndOf="@+id/eButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/gButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_g"
+            app:layout_constraintEnd_toStartOf="@+id/aButton"
+            app:layout_constraintStart_toEndOf="@+id/fButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/aButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_a"
+            app:layout_constraintEnd_toStartOf="@+id/bButton"
+            app:layout_constraintStart_toEndOf="@+id/gButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bButton"
+            style="@style/PianoWhiteButtonStyle"
+            android:text="@string/btn_b"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/aButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Black Keys -->
+    <!-- ConstraintLayout with horizontal margins between each Button -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/blackKeyConstraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/cSharpButton"
+            style="@style/PianoBlackButtonStyle"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/btn_c_sharp"
+            app:layout_constraintEnd_toStartOf="@+id/dSharpButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/dSharpButton"
+            style="@style/PianoBlackButtonStyle"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/btn_d_sharp"
+            app:layout_constraintEnd_toStartOf="@+id/fSharpButton"
+            app:layout_constraintStart_toEndOf="@+id/cSharpButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/fSharpButton"
+            style="@style/PianoBlackButtonStyle"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/btn_f_sharp"
+            app:layout_constraintEnd_toStartOf="@+id/gSharpButton"
+            app:layout_constraintStart_toEndOf="@+id/dSharpButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/gSharpButton"
+            style="@style/PianoBlackButtonStyle"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/btn_g_sharp"
+            app:layout_constraintEnd_toStartOf="@+id/aSharpButton"
+            app:layout_constraintStart_toEndOf="@+id/fSharpButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/aSharpButton"
+            style="@style/PianoBlackButtonStyle"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/btn_a_sharp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gSharpButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

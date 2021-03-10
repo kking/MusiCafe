@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- TODO: resolve redundancy -->
+    <!-- Between the two states, only the color changes -->
+
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp" />
+
+            <solid android:color="@android:color/white" />
+
+            <padding android:bottom="4dp" />
+
+            <stroke
+                android:width="4dp"
+                android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp" />
+
+            <solid android:color="@android:color/darker_gray" />
+
+            <padding android:bottom="4dp" />
+
+            <stroke
+                android:width="4dp"
+                android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</selector>

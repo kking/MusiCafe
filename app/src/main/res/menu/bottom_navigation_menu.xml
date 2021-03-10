@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomNavigationLayout">
+
+    <item
+        android:id="@+id/exercisesItem"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:title="@string/menu_exercises" />
+    <item
+        android:id="@+id/libraryItem"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_input_get"
+        android:title="@string/menu_library" />
+    <item
+        android:id="@+id/playItem"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="@string/menu_play" />
+    <item
+        android:id="@+id/settingsItem"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/menu_settings" />
+
+</menu>
+
+<!-- https://material.io/develop/android/components/bottom-navigation -->

@@ -1,0 +1,71 @@
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Bottom navigation theme -->
+    <style name="BottomNavigation" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Horizontal divider -->
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:background">@color/colorMCDark</item>
+    </style>
+
+    <!-- White text -->
+    <style name="TextWhite">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- MainActivity Menu Button -->
+    <style name="MainMenuButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">72dp</item>
+        <item name="android:layout_marginEnd">72dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <!-- IntervalsActivity, NotesActivity Button -->
+    <style name="QuizButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+
+        <item name="android:singleLine">false</item>
+
+        <item name="android:backgroundTint">@color/colorButton</item>
+        <item name="android:textColor">@color/colorButtonText</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Piano Button (black key) -->
+    <style name="PianoBlackButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">105dp</item>
+        <item name="android:background">@drawable/button_black_key</item>
+        <item name="android:gravity">bottom|center</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Piano Button (white key) -->
+    <style name="PianoWhiteButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:background">@drawable/button_white_key</item>
+        <item name="android:gravity">bottom|center</item>
+    </style>
+
+</resources>

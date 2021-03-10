@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MusiCafe Blues -->
+    <color name="colorMCLight">#2196F3</color>
+    <color name="colorMCMedium">#2169B5</color>
+    <color name="colorMCDark">#0F3054</color>
+
+    <!-- Theme -->
+    <color name="colorPrimary">@color/colorMCDark</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">@android:color/white</color>
+
+    <!-- Background/Gradient -->
+    <color name="colorBackground">@color/colorMCMedium</color>
+    <color name="colorGradient">@color/colorMCDark</color>
+
+    <!-- Buttons (unselected/selected) -->
+    <color name="colorButton">@color/colorMCLight</color>
+    <color name="colorButtonGrayed">@color/colorBackground</color>
+
+    <!-- Button Text (unselected/selected) -->
+    <color name="colorButtonText">@android:color/white</color>
+    <color name="colorButtonTextGrayed">@android:color/black</color>
+
+    <!-- Correct/Incorrect -->
+    <color name="colorButtonCorrect">@android:color/holo_green_light</color>
+    <color name="colorButtonIncorrect">@android:color/holo_red_light</color>
+
+</resources>
