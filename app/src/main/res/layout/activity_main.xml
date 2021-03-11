@@ -9,7 +9,6 @@
         android:id="@+id/mainFrameLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/background_gradient"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +18,13 @@
         android:id="@+id/bottomNavigationContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_gradient"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainFrameLayout"
-        app:backgroundTint="@color/colorMCMedium"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:menu="@menu/bottom_navigation_menu" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

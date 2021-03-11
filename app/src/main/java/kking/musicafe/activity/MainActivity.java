@@ -1,12 +1,12 @@
 package kking.musicafe.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,19 +15,18 @@ import kking.musicafe.fragment.IntervalEarFragment;
 import kking.musicafe.fragment.MainMenuFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
-    private static final int CONTAINER = R.id.mainFrameLayout, MENU = R.id.bottomNavigationContainer;
-
-    private FrameLayout mFrameLayout;
-    private BottomNavigationView mNavigationView;
+    private static final int CONTAINER = R.id.mainFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFrameLayout = findViewById(CONTAINER);
-        mNavigationView = findViewById(MENU);
+        ActionBar mActionBar = getSupportActionBar();
+        BottomNavigationView mNavigationView = findViewById(R.id.bottomNavigationContainer);
+
+        // set background for top ActionBar
+        assert mActionBar != null;
+        mActionBar.setBackgroundDrawable(getDrawable(R.drawable.background_gradient));
 
         // create listener for BottomNavigationView
         mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(IntervalEarFragment.newInstance(), "IntervalEarFragment");
                         return true;
                     case R.id.libraryItem:
+                        //replaceFragment(Fragment.newInstance(), "");
                         return true;
                     case R.id.playItem:
+                        //replaceFragment(Fragment.newInstance(), "");
                         return true;
                     case R.id.settingsItem:
+                        //replaceFragment(Fragment.newInstance(), "");
                         return true;
                     default:
                         return false;

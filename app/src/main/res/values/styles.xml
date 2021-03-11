@@ -4,7 +4,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <!-- Top navigation action bar theme-->
+    <style name="ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/background_gradient</item>
     </style>
 
     <!-- Bottom navigation theme -->
@@ -42,9 +47,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-
         <item name="android:singleLine">false</item>
-
         <item name="android:backgroundTint">@color/colorButton</item>
         <item name="android:textColor">@color/colorButtonText</item>
         <item name="fontFamily">sans-serif-medium</item>

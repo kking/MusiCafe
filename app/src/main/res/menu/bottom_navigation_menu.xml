@@ -1,6 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/bottomNavigationLayout">
-
+    android:id="@+id/bottomNavigationMenu">
     <item
         android:id="@+id/exercisesItem"
         android:enabled="true"
@@ -21,7 +20,4 @@
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_manage"
         android:title="@string/menu_settings" />
-
 </menu>
-
-<!-- https://material.io/develop/android/components/bottom-navigation -->

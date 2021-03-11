@@ -58,7 +58,7 @@ public class IntervalEarFragment extends Fragment {
     // Views
     private TextView scoreTextView;
     private Button[] qualityButtons, degreeButtons;
-    private Button nextButton;
+    private Button skipButton, nextButton;
     private ImageButton playImageButton;
 
     // Controller components
@@ -97,6 +97,14 @@ public class IntervalEarFragment extends Fragment {
 
         // Views
         scoreTextView = view.findViewById(R.id.scoreTextView);
+
+        skipButton = view.findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skipQuestion();
+            }
+        });
 
         nextButton = view.findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -149,15 +157,20 @@ public class IntervalEarFragment extends Fragment {
         player.playSequence(interval);
     }
 
+    public void skipQuestion() {
+        resetInterval();
+    }
+
     /**
-     * Updates the score, disables the "Next" Button, resets the Quality and Degree Buttons, generates the next
-     * IntervalEar question, and plays its interval.
+     * Updates the score, enables the "Skip" Button, disables the "Next" Button, resets the Quality and Degree
+     * Buttons, generates the next IntervalEar question, and plays its interval.
      */
     public void resetInterval() {
         // update score TextView with incremented total
         scoreTextView.setText(getString(R.string.txt_score, correctQuestions, ++totalQuestions));
 
-        setNextButton(false);
+        setButton(skipButton, true);
+        setButton(nextButton, false);
         resetButtonGroups();
 
         // generate interval and record its Quality and Degree
@@ -218,12 +231,16 @@ public class IntervalEarFragment extends Fragment {
         // disable all Buttons
         setButtonGroupsEnabled(false);
 
-        // enable "Next" Button
-        setNextButton(true);
+        // disable "Skip" Button, enable "Next" Button
+        setButton(skipButton, false);
+        setButton(nextButton, true);
 
         if (correct) {
             // update score TextView with incremented correct
             scoreTextView.setText(getString(R.string.txt_score, ++correctQuestions, totalQuestions));
+
+            // disable "Skip" Button
+            setButton(skipButton, false);
 
             // color selected Buttons in green
             colorButton(selectedQualityButton, CORRECT_BUTTON, SELECTED_BUTTON_TEXT);
@@ -268,7 +285,7 @@ public class IntervalEarFragment extends Fragment {
     }
 
     /**
-     * Changes the colors and enabled state of the "Next" Button according to the given value.
+     * Changes the colors and enabled state of the selected Button according to the given value.
      *
      * If enabled, the Button will become clickable and its background and text colors will represent
      * this availability. This state will occur upon calling {@link IntervalEarFragment#guessInterval()}.
@@ -276,14 +293,15 @@ public class IntervalEarFragment extends Fragment {
      * Otherwise, the Button will be disabled and colored in such a way that reflects this state upon a call
      * to {@link IntervalEarFragment#resetInterval()}.
      *
-     * @param enabled  The enabled state of the "Next" Button
+     * @param b
+     * @param enabled  The enabled state of the selected Button
      */
-    private void setNextButton(boolean enabled) {
+    private void setButton(Button b, boolean enabled) {
         int backgroundColor = (enabled) ? SELECTED_BUTTON : UNSELECTED_BUTTON;
         int textColor = (enabled) ? SELECTED_BUTTON_TEXT : UNSELECTED_BUTTON_TEXT;
 
-        nextButton.setEnabled(enabled);
-        colorButton(nextButton, backgroundColor, textColor);
+        b.setEnabled(enabled);
+        colorButton(b, backgroundColor, textColor);
     }
 
     /**
