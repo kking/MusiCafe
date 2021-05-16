@@ -3,17 +3,21 @@ package kking.musicafe.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import kking.musicafe.MCSoundPool;
 import kking.musicafe.R;
 
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 import kking.musicafe.IntervalMediaPlayer;
 import kking.musicafe.model.Interval;
@@ -28,6 +32,7 @@ import kking.musicafe.model.Setting;
 public class IntervalEarFragment extends Fragment {
     // region variables
     private static final String TAG = "IntervalEarFragment";
+    private static final int MAX_STREAMS = 2;
 
     // Constants - Quality and Degree Button initialization
     private static final int[] QUALITY_BUTTON_IDS = { R.id.majorButton, R.id.perfectButton, R.id.minorButton,
@@ -53,7 +58,7 @@ public class IntervalEarFragment extends Fragment {
 
     // Models
     private IntervalEar intervalQuiz;
-    private IntervalMediaPlayer player;
+    private MCSoundPool intervalPlayer; // for both the interval player and the PianoFragment
 
     // Views
     private TextView scoreTextView;
@@ -122,14 +127,14 @@ public class IntervalEarFragment extends Fragment {
             }
         });
 
-        // Quality Buttons and their listeners
+        // Quality Buttons and listeners
         qualityButtons = new Button[QUALITY_BUTTON_IDS.length];
         for (int i = 0; i < qualityButtons.length; i++) {
             qualityButtons[i] = view.findViewById(QUALITY_BUTTON_IDS[i]);
             qualityButtons[i].setOnClickListener(new QualityClickListener(QUALITY_BUTTON_VALUES[i]));
         }
 
-        // Degree Buttons and their listeners
+        // Degree Buttons and listeners
         degreeButtons = new Button[DEGREE_BUTTON_IDS.length];
         for (int i = 0; i < degreeButtons.length; i++) {
             degreeButtons[i] = view.findViewById(DEGREE_BUTTON_IDS[i]);
@@ -138,7 +143,15 @@ public class IntervalEarFragment extends Fragment {
 
         // Models
         intervalQuiz = new IntervalEar(Setting.CHROMATIC, Setting.BOTH_MOTIONS);
-        player = new IntervalMediaPlayer(getActivity());
+        intervalPlayer = new MCSoundPool(Objects.requireNonNull(getActivity()).getApplicationContext(), MAX_STREAMS);
+
+        // PianoFragment
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.piano_fragment_container, new PianoFragment(intervalPlayer), null) // uses MCSoundPool from here
+                    .commit();
+        }
 
         // Generate and play first question
         resetInterval();
@@ -153,8 +166,9 @@ public class IntervalEarFragment extends Fragment {
      * @see IntervalMediaPlayer#playSequence(int[])
      */
     public void playInterval() {
-        int[] interval = { intervalQuiz.getStartNoteID(), intervalQuiz.getEndNoteID() };
-        player.playSequence(interval);
+        //int[] interval = { intervalQuiz.getStartNoteID(), intervalQuiz.getEndNoteID() };
+        //player.playSequence(interval);
+        intervalPlayer.playIntervalUnison(intervalQuiz.getStartNoteID(), intervalQuiz.getEndNoteID());
     }
 
     public void skipQuestion() {

@@ -7,7 +7,7 @@ import android.util.Log;
 
 /**
  * IntervalMediaPlayer :
- * FIXME: playing an overlapping sequence of files
+ * TODO: playing an overlapping sequence of files
  *
  * @author kking
  */
